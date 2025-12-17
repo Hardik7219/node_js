@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+           <div class="tasks p-10 text-white">
+            <form action="/edit" method="post">
+                <input  type="text" value="<%=  filename %>" name="old1" placeholder="old name" class="block w-full rounded-md bg-gray-500 p-2 m-2 outline-none"/>
+                <input  type="text" placeholder="new name" name="new1" class="block w-full rounded-md bg-gray-500 p-2 m-2 outline-none"/>
+                <input type="submit" value="edit name" class="bg-blue-500 p-2 m-2 rounded-md text-white"/>
+            </form>
+        </div>
+</body>
+</html>

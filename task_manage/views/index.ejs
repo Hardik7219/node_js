@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class="main bg-black w-full min-h-screen">
+        <div class="tasks p-10 text-white">
+            <form action="/create" method="post">
+                <input name="title" type="text" placeholder="Add your task" class="block w-full rounded-md bg-gray-500 p-2 m-2 outline-none"/>
+                <textarea name="detail" class="block bg-gray-500 outline-none resize-none w-full rounded-md p-2 m-2" placeholder="write your tasks"></textarea>
+                <input type="submit" value="Add Task" class="bg-blue-500 p-2 m-2 rounded-md text-white"/>
+            </form>
+            <form action="/delete" method="post">
+                <input name="title1" type="text" placeholder="Delete your task" class="block w-full rounded-md bg-gray-500 p-2 m-2 outline-none"/>
+                <input type="submit" value="Delete Task" class="bg-red-500 p-2 m-2 rounded-md text-white"/>
+            </form>
+        </div>
+        <div class="task p-10 flex gap-3 flex-wrap">
+            <% if(filesList.length> 0){ %>
+                <% filesList.forEach(function(file){ %>
+                    <div class="bg-gray-600 w-80 ">
+                        <h1 class="text-orange-300 m-10 text-2xl"><%= file  %></h1>
+                        <a class="text-blue-600" href="/files/<%= file %>">read more</a>
+                        <a class="text-blue-600" href="/edit/<%= file %>">edit</a>
+                    </div>
+          
+                <% }) %>
+                <% } else { %>
+                    <h1 class="text-white">no task</h1>
+                    <% } %>
+
+                
+        </div>
+    </div>
+</body>
+</html>
