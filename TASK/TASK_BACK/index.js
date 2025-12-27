@@ -25,13 +25,32 @@ app.get('/files',(req,res)=>{
 app.post('/create', (req, res) => {
         const {title ,detail} = req.body;
         fs.writeFile(`./files/${title.split(' ').join("_")}.txt`,detail,(err)=>{
-            res.redirect('/');
+          if(err){
+            console.log(err);
+          } else{
+            res.json({data: "file created successfully"});
+          }
         })
     
+})
+
+app.get('/read/:filename',(req,res)=>{
+  fs.readFile(`./files/${req.params.filename}`,'utf8',(err,data)=>{
+    if(err){
+      console.log(err);
+    } else{
+      res.send({data});
+    }
+  })
+})
+
+app.post('/update/:filename',(req,res)=>{
+  fs.rename(`./files/${req.params.filename}`,`./files/${req.body.newName}`,()=>{
+
+  })
+  
 })
 app.listen(5000, () => {
   console.log('Server is running on port 3000');
 })
-
-
 

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+        <div class="tasks p-10 text-white">
+            <h1 class="text-orange-300"><%= user.userName %></h1>
+            <form action="/update/<%= user._id %>" method="post">
+                <input name="newUserName" value="<%= user.userName %>" type="text" placeholder="new username" class="  rounded-md bg-gray-500 p-2 m-2 outline-none"/>
+                <input name="newEmail" value="<%= user.email %>" type="email" class=" bg-gray-500 outline-none resize-none rounded-md p-2 m-2" placeholder="new email"/>
+                <input name="newImage" value="<%= user.image %>" type="text" class=" bg-gray-500 outline-none resize-none  rounded-md p-2 m-2" placeholder="new image url"/>
+                <input type="submit" value="update" class="bg-blue-500 p-2 m-2 rounded-md text-white"/>
+            </form>
+        </div>
+</body>
+</html>

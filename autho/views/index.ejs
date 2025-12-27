@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class="text-white min-h-screen w-full bg-black">
+        <h3>USER</h3>
+        <form action="/create" method="post">
+            <input type="text" placeholder="USERNAME" name="userName">
+            <input type="email" placeholder="Email" name="email">
+            <input type="password" placeholder="password" name="password">
+            <input type="number" placeholder="Age" name="age">
+            <button type="submit" value="create user">create user</button>
+        </form>
+    </div>
+</body>
+</html>
