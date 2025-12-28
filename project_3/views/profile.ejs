@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body>
+    <div class="h-screen w-full bg-gray-900  text-white p-5">
+        <div class="flex justify-end">
+            <a href="/logout" class=" bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">logout</a >
+
+        </div>
+        <h1 class="text-2xl font-bold">hello <%= user.name %> </h1>
+        <p>Welcome to your profile page.</p>
+        <div class="m-10 p-5 border border-white rounded">
+            <form action="/posts" method="post">
+                <textarea class="w-60 resize-none outline-none border transparent" placeholder="write" name="content"></textarea>
+                <input class=" block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit" value="create post">
+            </form>
+        </div>
+        <h1 class="m-2">post
+        </h1>
+        <div class="flex flex-wrap">
+            <% user.posts.reverse().forEach(function(post){ %>
+            <div class="m-5 p-2 w-90 border border-white  rounded">
+                <h1 class="text-blue-600">@<%= user.name %></h1>
+                <h2 class="mt-2"><%= post.content %></h2>
+                <a href="" class="text-red-400">like</a>
+                <a href="" class="text-blue-400 m-2">edit</a>
+            </div>
+            <%  })%>   
+        </div>
+    </div>
+</body> 
+</html>
