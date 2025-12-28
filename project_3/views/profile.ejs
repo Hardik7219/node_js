@@ -28,8 +28,9 @@
             <div class="m-5 p-2 w-90 border border-white  rounded">
                 <h1 class="text-blue-600">@<%= user.name %></h1>
                 <h2 class="mt-2"><%= post.content %></h2>
-                <a href="" class="text-red-400">like</a>
-                <a href="" class="text-blue-400 m-2">edit</a>
+                <i><%= post.likes.length %></i>
+                <a href="/likes/<%= post._id %>" class="text-red-400"><%= post.likes.indexOf(user._id) == -1 ? "Like" : "Unlike" %> </a>
+                <a href="/edit/<%= post._id %>" class="text-blue-400 m-2">edit</a>
             </div>
             <%  })%>   
         </div>

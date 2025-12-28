@@ -89,6 +89,18 @@ await user.save();
 res.redirect('/profile');
 });
 
+
+app.get('/likes/:postId', isLogedIn, async (req,res) => {
+let post = await postModel.findOne({_id: req.params.postId }).populate("user");
+if(post.likes.indexOf(res.user.userid) === -1){
+    post.likes.push(res.user.userid);
+}
+else {
+    post.likes.splice(post.likes.indexOf(res.user.userid), 1);   
+}
+await post.save();
+res.redirect('/profile');
+});
 function isLogedIn(req, res, next){
     const token = req.cookies.token;
     if(token === ""){
